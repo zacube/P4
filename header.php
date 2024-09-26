@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/style.css">
     <title>The ArtBox</title>
+    <link rel="shortcut icon" type="image/png" href="/favicon.png"/>
 </head>
 <body>
 <header>

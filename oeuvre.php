@@ -1,26 +1,25 @@
 <?php
-require 'header.php';
-
 // Si l'URL ne contient pas d'id, on redirige sur la page d'accueil
 if (empty($_GET['id'])) {
     header('Location: index.php');
 }
 
-/*inclusion des variables et fonctions*/
-require_once(__DIR__ . '/functions.php');
+/*connexion à la base de données -> $mysql*/
+require_once(__DIR__ . '/bdd.php');
 
-/* connexion bdd et récupération données*/
-$mysql = connexion();
 $oeuvre = null;
 
-
-$sqlQuery = 'SELECT * FROM oeuvres WHERE id=:id';
-$oeuvresStatement = $mysql->prepare($sqlQuery);
+/* récupération données*/
+$requete = 'SELECT * FROM oeuvres WHERE id=:id';
+$oeuvresStatement = $pdo->prepare($requete);
 $oeuvresStatement->execute(['id' => $_GET['id']]);
-$oeuvre = $oeuvresStatement->fetchAll(PDO::FETCH_ASSOC);
-$oeuvre = $oeuvre[0];
-?>
+$oeuvre = $oeuvresStatement->fetch(PDO::FETCH_ASSOC);
+if (count($oeuvre)=== 0 ){
+    header('Location: index.php');
+}
 
+require 'header.php';
+?>
 <article id="detail-oeuvre">
     <div id="img-oeuvre">
         <img src="<?= $oeuvre['image'] ?>" alt="<?= $oeuvre['titre'] ?>">

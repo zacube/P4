@@ -1,14 +1,12 @@
 <?php
-/*inclusion des variables et fonctions*/
-require_once(__DIR__ . '/functions.php');
+/*connexion à la base de données -> $mysql*/
+require_once(__DIR__ . '/bdd.php');
 
-/* connexion bdd et récupération données*/
-$mysql = connexion();
-$sqlQuery = 'SELECT * FROM oeuvres';
-$oeuvresStatement = $mysql->prepare($sqlQuery);
+/* récupération données*/
+$requete = 'SELECT * FROM oeuvres';
+$oeuvresStatement = $pdo->prepare($requete);
 $oeuvresStatement->execute();
 $oeuvres = $oeuvresStatement->fetchAll(PDO::FETCH_ASSOC);
-
 
 require 'header.php';
 
