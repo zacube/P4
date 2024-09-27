@@ -1,12 +1,11 @@
 <?php
-// Initialiser les variables
-$titre = $artiste = $image = $description = '';
+session_start();
+// Initialise le tableau des messages d'erreur
 $errors = [];
 
 // supprime les balises html, convertit les caractères spéciaux et supprime les espaces avant et après
 function verif($tmp) {
-    $tmp = trim(htmlspecialchars(strip_tags($tmp)));
-    return $tmp;
+    return trim(htmlspecialchars(strip_tags($tmp)));
 }
 
 // Vérifie si le formulaire a été soumis avec POST
@@ -48,7 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // S'il y a des erreurs, renvoie vers le formulaire avec les données et les erreurs
     if (!empty($errors)) {
-        session_start();
         $_SESSION['titre'] = $titre;
         $_SESSION['artiste'] = $artiste;
         $_SESSION['image'] = $image;
