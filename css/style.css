@@ -47,7 +47,7 @@ footer {
 
 
 
-#liste-oeuvres {
+.liste-oeuvres {
     display: flex;
     flex-wrap: wrap;
 }
@@ -61,7 +61,7 @@ footer {
     width: 100%;
 }
 
-.oeuvre h2, #detail-oeuvre h1 {
+.oeuvre h2, .detail-oeuvre h1 {
     text-transform: uppercase;
     margin-top: 0;
     margin-bottom: 0;
@@ -69,14 +69,14 @@ footer {
     font-size: 30px;
 }
 
-.oeuvre .description, #detail-oeuvre .description {
+.oeuvre .description, .detail-oeuvre .description {
     font-style: italic;
     margin-top: 0;
     font-size: 12px;
     margin-bottom: 20px;
 }
 
-#detail-oeuvre {
+.detail-oeuvre {
     display: flex;
     flex-wrap: wrap;
     align-items: end;
@@ -86,17 +86,17 @@ footer {
     padding: 0 15px;
 }
 
-#img-oeuvre {
+.img-oeuvre {
     margin-right: 25px;
 }
 
-#img-oeuvre img {
+.img-oeuvre img {
     max-width: 470px;
     margin: auto;
     display: block;
 }
 
-#contenu-oeuvre {
+.contenu-oeuvre {
     max-width: 470px;
 }
 
@@ -139,16 +139,16 @@ input[type="submit"] {
         width: 50%;
     }
 
-    #img-oeuvre {
+    .img-oeuvre {
         margin-right: 0;
         width: 100%;
     }
 
-    #img-oeuvre img {
+    .img-oeuvre img {
         width: 100%;
     }
 
-    #contenu-oeuvre {
+    .contenu-oeuvre {
         width: 100%;
         margin: auto;
     }

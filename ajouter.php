@@ -3,31 +3,11 @@ session_start();
 require 'header.php';
 
 // récupère les données et les erreurs depuis traitement.php
-if (isset($_SESSION['titre'])){
-    $titre = $_SESSION['titre'];
-} else {
-    $titre = '';
-}
-if (isset($_SESSION['artiste'])){
-    $artiste = $_SESSION['artiste'];
-} else {
-    $artiste = '';
-}
-if (isset($_SESSION['image'])){
-    $image = $_SESSION['image'];
-} else {
-    $image = '';
-}
-if (isset($_SESSION['description'])){
-    $description = $_SESSION['description'];
-} else {
-    $description = '';
-}
-if (isset($_SESSION['errors'])){
-    $errors = $_SESSION['errors'];
-} else {
-    $errors = [];
-}
+$titre = isset($_SESSION['titre']) ? $_SESSION['titre'] : '';
+$artiste = isset($_SESSION['artiste']) ? $_SESSION['artiste'] : '' ;
+$image = isset($_SESSION['image']) ? $_SESSION['image'] : '';
+$description = isset($_SESSION['description']) ? $_SESSION['description'] : '';
+$errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
 
 // Supprime les variables de session
 session_unset();

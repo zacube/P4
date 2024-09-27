@@ -14,17 +14,17 @@ $requete = 'SELECT * FROM oeuvres WHERE id=:id';
 $oeuvresStatement = $pdo->prepare($requete);
 $oeuvresStatement->execute(['id' => $_GET['id']]);
 $oeuvre = $oeuvresStatement->fetch(PDO::FETCH_ASSOC);
-if (count($oeuvre)=== 0 ){
+if (!$oeuvre){
     header('Location: index.php');
 }
 
 require 'header.php';
 ?>
-<article id="detail-oeuvre">
-    <div id="img-oeuvre">
+<article class="detail-oeuvre">
+    <div class="img-oeuvre">
         <img src="<?= $oeuvre['image'] ?>" alt="<?= $oeuvre['titre'] ?>">
     </div>
-    <div id="contenu-oeuvre">
+    <div class="contenu-oeuvre">
         <h1><?= $oeuvre['titre'] ?></h1>
         <p class="description"><?= $oeuvre['artiste'] ?></p>
         <p class="description-complete">

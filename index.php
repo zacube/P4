@@ -11,7 +11,7 @@ $oeuvres = $oeuvresStatement->fetchAll(PDO::FETCH_ASSOC);
 require 'header.php';
 
 ?>
-<div id="liste-oeuvres">
+<div class="liste-oeuvres">
     <?php foreach ($oeuvres as $oeuvre): ?>
         <article class="oeuvre">
             <a href="oeuvre.php?id=<?= $oeuvre['id'] ?>">
